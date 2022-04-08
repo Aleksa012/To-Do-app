@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/bookmark-solid.svg" type="image/icon type" />
+    <title>To-Do</title>
+    <link rel="stylesheet" href="./output.css" />
+    <script
+      src="https://kit.fontawesome.com/330a401e7c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div
+      class="bg-slate-400 w-screen md:w-[50vw] h-[80vh] relative p-[5rem] px-[15rem] md:left-[50%] md:translate-x-[-50%] flex flex-col items-center"
+    >
+      <h1 class="text-white text-6xl mb-20">To-Do App</h1>
+      <form id="form" class="relative w-[80%]">
+        <input
+          id="input"
+          class="border-slate-700 border-2 bg-slate-400 text-2xl text-slate-900 outline-none pl-3 w-[100%] h-16"
+          type="text"
+        />
+        <button
+          class="absolute -top-2 -right-4 text-3xl h-20 w-20 rounded-full border-2 border-slate-700 bg-white transition duration-300 ease 0 hover:bg-slate-800"
+        >
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </form>
+      <ul
+        id="list"
+        class="mt-10 w-[80%] flex flex-col justify-center items-center p-5 border-2 gap-5"
+      >
+        <li class="item">
+          sss
+          <button class="btn-del">del</button>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
