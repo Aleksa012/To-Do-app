@@ -15,28 +15,41 @@
   </head>
   <body>
     <div
-      class="bg-slate-400 w-screen md:w-[50vw] h-[80vh] relative p-[5rem] px-[15rem] md:left-[50%] md:translate-x-[-50%] flex flex-col items-center"
+      class="bg-slate-800 h-screen md:h-[80vh] w-screen md:w-[80%] absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 flex flex-col items-center p-28"
     >
-      <h1 class="text-white text-6xl mb-20">To-Do App</h1>
-      <form id="form" class="relative w-[80%]">
+      <h1 class="text-white text-6xl mb-20">To Do App</h1>
+      <form id="form" class="bg-black w-[80%] h-16 relative mb-20">
         <input
           id="input"
-          class="border-slate-700 border-2 bg-slate-400 text-2xl text-slate-900 outline-none pl-3 w-[100%] h-16"
+          class="w-full h-full text-2xl outline-none border-4 border-sky-500 border-t-0 shadow-black shadow-md pl-5"
           type="text"
-        />
-        <button
-          class="absolute -top-2 -right-4 text-3xl h-20 w-20 rounded-full border-2 border-slate-700 bg-white transition duration-300 ease 0 hover:bg-slate-800"
+        /><button
+          class="bg-white text-6xl absolute h-28 w-28 -right-12 -top-5 rounded-full border-4 border-sky-500"
         >
           <i class="fa-solid fa-plus"></i>
         </button>
       </form>
       <ul
         id="list"
-        class="mt-10 w-[80%] flex flex-col justify-center items-center p-5 border-2 gap-5"
+        class="bg-black w-[100%] h-[80%] overflow-auto p-5 border-4"
       >
         <li class="item">
-          sss
-          <button class="btn-del">del</button>
+          aa
+          <button class="btn-done">
+            <i class="fa-solid fa-check"></i>
+          </button>
+          <button class="btn-del">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </li>
+        <li class="item">
+          aa
+          <button class="btn-done">
+            <i class="fa-solid fa-check"></i>
+          </button>
+          <button class="btn-del">
+            <i class="fa-solid fa-trash"></i>
+          </button>
         </li>
       </ul>
     </div>
