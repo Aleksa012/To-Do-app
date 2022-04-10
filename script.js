@@ -3,13 +3,15 @@ const input = document.querySelector("#input");
 const list = document.querySelector("#list");
 
 class Item {
-  constructor(content) {
+  constructor(content, id) {
     const firstWord = content.split(" ")[0];
     const firstWordToUpperCase =
       firstWord[0].toUpperCase() + firstWord.slice(1);
 
     this.content =
       `${firstWordToUpperCase} ` + content.split(" ").slice(1).join(" ");
+
+    this.id = id;
   }
 }
 
@@ -27,13 +29,15 @@ class UI {
       return;
     }
 
-    const newItem = new Item(input.value);
+    const id = Math.trunc(Math.random() * 100000) + 1;
+
+    const newItem = new Item(input.value, id);
 
     const item = document.createElement("li");
     item.classList.add("item");
 
     const itemContent = `
-       ${newItem.content}
+       <span id=${newItem.id} >${newItem.content}</span>
        <button class='btn-done'>
           <i class="fa-solid fa-check"></i>
        </button>    
@@ -47,6 +51,8 @@ class UI {
     list.appendChild(item);
 
     input.value = "";
+
+    localStorage.setItem(`item${newItem.id}`, itemContent.toString());
   }
 
   static removeItem(e) {
@@ -56,7 +62,11 @@ class UI {
       e.target.classList.contains("btn-del") ||
       e.target.classList.contains("fa-trash")
     ) {
+      const toRemove = e.target.closest("li").querySelector("span").id;
+
       e.target.closest("li").remove();
+
+      localStorage.removeItem(`item${toRemove}`);
     }
   }
 
@@ -70,8 +80,26 @@ class UI {
       e.target.closest("li").classList.toggle("item-done");
     }
   }
+
+  static loadStorage(e) {
+    e.preventDefault();
+
+    const items = localStorage;
+
+    for (const x in items) {
+      if (x.slice(0, 4) === "item") {
+        const item = document.createElement("li");
+        item.classList.add("item");
+
+        item.insertAdjacentHTML("afterbegin", items[x]);
+
+        list.appendChild(item);
+      }
+    }
+  }
 }
 
 form.addEventListener("submit", UI.addItem);
 list.addEventListener("click", UI.removeItem);
 list.addEventListener("click", UI.checkDone);
+window.addEventListener("DOMContentLoaded", UI.loadStorage);
